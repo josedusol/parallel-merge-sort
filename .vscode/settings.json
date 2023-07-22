@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "time.h": "c",
+        "string_view": "c",
+        "random": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/josedu/work/parallel-merge-sort",
+            "binaryPath": "/home/josedu/work/parallel-merge-sort/genInput",
+            "binaryArgs": []
+        }
+    ]
+}
