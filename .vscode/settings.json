@@ -5,7 +5,8 @@
         "random": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "type_traits": "c"
     },
     "makefile.launchConfigurations": [
         {

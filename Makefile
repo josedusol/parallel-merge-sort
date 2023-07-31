@@ -1,7 +1,7 @@
 
 BIN=build
 CC=$(T) cc
-EXECS=genInput merge mergeP mergeSort mergeSortPv1_omp mergeSortPv2_omp mergeSortPv1_mpi mergeSortPv1_mpi2  
+EXECS=genInput merge mergeP mergeSort mergeSortPv1_omp mergeSortPv2_omp mergeSortPv0_mpi mergeSortPv1_mpi mergeSortPv2_hyb  
 MPICC?=mpicc
 
 .PHONY: all
@@ -30,11 +30,14 @@ mergeSortPv1_omp: mergeSortPv1_omp.c
 mergeSortPv2_omp: mergeSortPv2_omp.c
 	$(CC) $(addprefix -D, $(D)) -fopenmp mergeSortPv2_omp.c -o $(BIN)/mergeSortPv2_omp 	
 
-mergeSortPv1_mpi: mergeSortPv1_mpi.c
-	${MPICC} $(addprefix -D, $(D)) mergeSortPv1_mpi.c -o $(BIN)/mergeSortPv1_mpi
+mergeSortPv0_mpi: mergeSortPv0_mpi.c
+	${MPICC} $(addprefix -D, $(D)) mergeSortPv0_mpi.c -o $(BIN)/mergeSortPv0_mpi
 
-mergeSortPv1_mpi2: mergeSortPv1_mpi2.c
-	${MPICC} $(addprefix -D, $(D)) mergeSortPv1_mpi2.c -lm -o $(BIN)/mergeSortPv1_mpi2
+mergeSortPv1_mpi: mergeSortPv1_mpi.c
+	${MPICC} $(addprefix -D, $(D)) mergeSortPv1_mpi.c -lm -o $(BIN)/mergeSortPv1_mpi
+
+mergeSortPv2_hyb: mergeSortPv2_hyb.c
+	${MPICC} $(addprefix -D, $(D)) -fopenmp mergeSortPv2_hyb.c -lm -o $(BIN)/mergeSortPv2_hyb
 
 #### Auxiliary builds
 

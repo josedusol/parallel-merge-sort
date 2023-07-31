@@ -1,11 +1,19 @@
-
 #!/bin/bash
+
+###############################################################################
+# Runtime experiment.
+# Run a target executable over a range of input files, repeating each 
+# invocation for a specified number of reps.
+# e.g.:
+# $ CUT_OFF=80 ./runInput.sh mergeSortPv1_omp 10 timePv1omp-n10e9-c80.csv ./input
+# $ CUT_OFF_1=80 CUT_OFF_2=8000 ./runInput.sh mergeSortPv1_omp 10 timePv2omp-n10e9-c80_8000.csv ./input
+###############################################################################
 
 target=$1     # Executable file to run
 reps=$2       # Num. of repetitions
 output=$3     # Output file name
 dir=$4        # Directory of input files
-range=${@:5}  # (OPTIONAL) Size range for input files
+range=${@:5}  # (OPTIONAL) Filter size range for input files
 
 if [ "$#" -lt 4 ]; then
   echo "--- Illegal number of parameters.";

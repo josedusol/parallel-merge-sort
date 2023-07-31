@@ -1,8 +1,11 @@
-
 #!/bin/bash
 
-# Script to generate files filled with random arrays
+###############################################################################
+# Generate files filled with random arrays
 # Important: For best performance, is much better to use the C version
+# e.g.:
+# $ ./genInput.sh /path_to_files $(echo {10..1000..10} | tr ' ' ,)
+###############################################################################
 
 dir=$1         # Directory
 range=${@:2}   # Size range for input files

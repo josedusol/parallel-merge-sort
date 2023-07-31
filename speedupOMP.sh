@@ -1,17 +1,19 @@
-
 #!/bin/bash
 
 ###############################################################################
-# e.g.
-# $ CUT_OFF=80 ./speedup.sh mergeSortPv1_omp 10 speedupPv1omp-n10e9-c80.csv ./input/in_n=1000000000.txt {1..36}
-# $ CUT_OFF_1=80 CUT_OFF_2=8000 ./speedup.sh mergeSortPv2_omp 10 speedupPv2omp-n10e9-c80_8000.csv ./input/in_n=1000000000.txt {1..36}
+# Speedup experiment for OMP.
+# Run a target executable on a specified input file for a range of OMP thread 
+# counts, repeating each invocation for a specified number of reps.
+# e.g.:
+# $ CUT_OFF=80 ./speedupOMP.sh mergeSortPv1_omp 10 speedupPv1omp-n10e9-c80.csv ./input/in_n=1000000000.txt {1..36}
+# $ CUT_OFF_1=80 CUT_OFF_2=8000 ./speedupOMP.sh mergeSortPv2_omp 10 speedupPv2omp-n10e9-c80_8000.csv ./input/in_n=1000000000.txt {1..36}
 ###############################################################################
 
 target=$1       # Executable file to run
 reps=$2         # Num. of repetitions
 output=$3       # Output file name
 file=$4         # Path to input file
-threads=${@:5}  # Range of threads
+threads=${@:5}  # Range of OMP threads
 
 if [ "$#" -lt 5 ]; then
   echo "--- Illegal number of parameters.";
